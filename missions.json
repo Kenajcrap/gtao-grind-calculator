@@ -1,0 +1,94 @@
+{
+    "missions": {
+        "headhunter" : {
+            "reward": 20000,
+            "time": 140,
+            "cooldown": {
+                "onfinish": 600,
+                "ontrigger": 300
+            },
+            "startlocation": [
+                "city"
+            ],
+            "ëndlocation": [
+                "city"
+            ],
+            "requires": [
+                "office"
+            ]
+        },
+        "hostile_takeover": {
+            "reward": 15000,
+            "time": 180,
+            "cooldown": {
+                "onfinish": 900,
+                "ontrigger": 300
+            },
+            "startlocation": [
+                "lsia",
+                "fort_zancudo"
+            ],
+            "endlocation": [
+                "ht_end"
+            ],
+            "requires": [
+                "office"
+            ]
+        },
+        "diamond_shopping": {
+            "reward": 30000,
+            "time": 120,
+            "cooldown": {
+                "onfinish": 900,
+                "ontrigger": 300
+            },
+            "startlocation": [
+                "jewlery_store"
+            ],
+            "endlocation": [
+                "secluded_hotel"
+            ],
+            "requires": [
+                "terrorbyte"
+            ]
+        },
+        "export": {
+            "reward": 100000,
+            "tax": 20000,
+            "time": 420,
+            "cooldown": {
+                "onfinish": 1400, 
+                "ontrigger": 900
+            },
+            "startlocation": [
+                "vehicle_warehouse"
+            ],
+            "endlocation": [
+                "ex_end"
+            ]
+            ,
+            "required": [
+                "vehicle_warehouse"
+            ]
+        },
+        "bunker_delivery": {
+            "reward": 1000000,
+            "tax": 375000,
+            "time": 600,
+            "cooldown": {
+                "onfinish": 23400, 
+                "ontrigger": 900
+            },
+            "startlocation": [
+                "bunker"
+            ],
+            "endlocation": [
+                "city"
+            ]
+            ,
+            "required": [
+                "bunker"
+            ]
+        }
+    }
+}
