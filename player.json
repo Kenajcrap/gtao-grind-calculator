@@ -1,0 +1,9 @@
+{
+  "money":5000000,
+  "business": [
+      "bunker",
+      "office",
+      "vehicle_warehouse",
+      "terrorbyte"
+  ]
+}
