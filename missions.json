@@ -2,7 +2,7 @@
     "missions": {
         "headhunter" : {
             "reward": 20000,
-            "time": 140,
+            "expectedduration": 140,
             "cooldown": {
                 "onfinish": 600,
                 "ontrigger": 300
@@ -10,7 +10,7 @@
             "startlocation": [
                 "city"
             ],
-            "ëndlocation": [
+            "endlocation": [
                 "city"
             ],
             "requires": [
@@ -19,7 +19,7 @@
         },
         "hostile_takeover": {
             "reward": 15000,
-            "time": 180,
+            "expectedduration": 180,
             "cooldown": {
                 "onfinish": 900,
                 "ontrigger": 300
@@ -37,7 +37,7 @@
         },
         "diamond_shopping": {
             "reward": 30000,
-            "time": 120,
+            "expectedduration": 120,
             "cooldown": {
                 "onfinish": 900,
                 "ontrigger": 300
@@ -55,7 +55,7 @@
         "export": {
             "reward": 100000,
             "tax": 20000,
-            "time": 420,
+            "expectedduration": 420,
             "cooldown": {
                 "onfinish": 1400, 
                 "ontrigger": 900
@@ -74,7 +74,7 @@
         "bunker_delivery": {
             "reward": 1000000,
             "tax": 375000,
-            "time": 600,
+            "expectedduration": 600,
             "cooldown": {
                 "onfinish": 23400, 
                 "ontrigger": 900
