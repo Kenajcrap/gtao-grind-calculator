@@ -6,37 +6,45 @@ class mission:
 		self.name = name
 		self.reward = reward
 		self.expectedduration = expectedduration
-		self.cooldownend = 0
-	
-	def getname(self):
-		return self.name
 
-	def setcooldown(self, event, seconds):
-		if event == "ontrigger":
-			self.cooldownontrigger = seconds
-		elif event == "onfinish":
-			self.cooldownonfinish = seconds
+	def setcooldowntime(self, event, seconds):
+		try:
+			self.cooldowntimes[event] = seconds
+		except AttributeError:
+			self.cooldowntimes = {}
+			self.cooldowntimes[event] = seconds
 	
-	def startcooldown(self, event):
-		if event == "ontrigger":
-			self.cooldownend = time() + self.cooldownontrigger
-		elif event == "onfinish":
-			self.cooldownend = time() + self.cooldownonfinish
+	def _startcooldown(self, event):
+		try:
+			self.cooldownend = time() + self.cooldownontimes[event]
+		except AttributeError:
+			raise AttributeError("Mission has no cooldown times set, set it with setcooldowntime(String event, Int seconds)")
+
+	def _getcooldown(self):
+		try:
+			return max(0, self.cooldownend - time())
+		except AttributeError:
+			return 0
 	
-	def getcooldown(self):
-		return max(0, self.cooldownend-time())
+	def _setcooldown(self, seconds):
+		self.cooldownend = time() + seconds
+
+	cooldown  = property(_getcooldown, _setcooldown)
 
 	def finish(self):
 		try:
-			self.startcooldown("onfinish")
+			self._startcooldown("onfinish")
 		except AttributeError:
-			raise Exception("Tried to trigger before setcooldown('finish', seconds)")
+			raise AttributeError("Tried to trigger before setcooldowntime('onfinish', seconds)")
 
 	def trigger(self):
 		try:
-			self.startcooldown("ontrigger")
+			self._startcooldown("ontrigger")
 		except AttributeError:
-			raise Exception("Tried to trigger() before setcooldown('trigger', seconds)")
+			raise AttributeError("Tried to trigger() before setcooldowntime('ontrigger', seconds)")
+
+	def clear(self):
+		self.cooldown = 0
 
 
 
