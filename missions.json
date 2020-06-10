@@ -75,8 +75,7 @@
 		"tax": 375000,
 		"expectedduration": 600,
 		"cooldown": {
-			"onfinish": 23400, 
-			"ontrigger": 900
+			"onfinish": 23400
 		},
 		"startlocation": [
 			"bunker"
