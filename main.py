@@ -1,30 +1,38 @@
+from time import time, sleep
+
 class mission:
 
 	def __init__(self, reward, expectedduration):
 		self.reward = reward
 		self.expectedduration = expectedduration
-		self.cooldownremaining = 0
+		self.cooldownend = 0
 
-	def setcooldown(self, seconds, ontrigger):
-		if ontrigger:
+	def setcooldown(self, event, seconds):
+		if event == "trigger":
 			self.cooldownontrigger = seconds
-		else:
+		elif event == "finish":
 			self.cooldownonfinish = seconds
+	
+	def startcooldown(self, event):
+		if event == "trigger":
+			self.cooldownend = time() + self.cooldownontrigger
+		elif event == "finish":
+			self.cooldownend = time() + self.cooldownonfinish
+	
+	def getcooldown(self):
+		return max(0, self.cooldownend-time())
 
 	def finish(self):
 		try:
-			if self.cooldownremaining < self.cooldownonfinish:
-				self.cooldownremaining = self.cooldownonfinish
+			self.startcooldown("finish")
 		except AttributeError:
-			pass
+			raise Exception("Tried to trigger before setcooldown('finish', seconds)")
 
 	def trigger(self):
 		try:
-			if self.cooldownremaining < self.cooldownontrigger:
-				self.cooldownremaining = self.cooldownontrigger
+			self.startcooldown("trigger")
 		except AttributeError:
-			pass
-
+			raise Exception("Tried to trigger() before setcooldown('trigger', seconds)")
 
 class supplymission(mission):
 
