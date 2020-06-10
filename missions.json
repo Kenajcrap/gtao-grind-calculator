@@ -1,5 +1,6 @@
-{
-	"headhunter" : {
+[
+	{
+		"name": "headhunter",
 		"reward": 20000,
 		"expectedduration": 140,
 		"cooldown": {
@@ -16,7 +17,8 @@
 			"office"
 		]
 	},
-	"hostile_takeover": {
+	{
+		"name": "hostile_takeover",
 		"reward": 15000,
 		"expectedduration": 180,
 		"cooldown": {
@@ -34,7 +36,8 @@
 			"office"
 		]
 	},
-	"diamond_shopping": {
+	{
+		"name": "diamond_shopping",
 		"reward": 30000,
 		"expectedduration": 120,
 		"cooldown": {
@@ -51,7 +54,8 @@
 			"terrorbyte"
 		]
 	},
-	"export": {
+	{
+		"name": "export",
 		"reward": 100000,
 		"tax": 20000,
 		"expectedduration": 420,
@@ -70,7 +74,8 @@
 			"vehicle_warehouse"
 		]
 	},
-	"bunker_delivery": {
+	{
+		"name": "bunker_delivery",
 		"reward": 1000000,
 		"tax": 375000,
 		"expectedduration": 600,
@@ -88,4 +93,4 @@
 			"bunker"
 		]
 	}
-}
+]
