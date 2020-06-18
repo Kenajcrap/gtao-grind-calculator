@@ -1,11 +1,17 @@
 [
 	{
+		"name": "none",
+		"reward": 0,
+		"expectedduration": 1
+	},
+	{
 		"name": "headhunter",
+		"group": "vip",
 		"reward": 20000,
 		"expectedduration": 140,
 		"cooldown": {
 			"onfinish": 600,
-			"ontrigger": 300
+			"ongroupfinish": 300
 		},
 		"startlocation": [
 			"city"
@@ -13,17 +19,18 @@
 		"endlocation": [
 			"city"
 		],
-		"requires": [
+		"required": [
 			"office"
 		]
 	},
 	{
 		"name": "hostile_takeover",
+		"group": "vip",
 		"reward": 15000,
 		"expectedduration": 180,
 		"cooldown": {
 			"onfinish": 900,
-			"ontrigger": 300
+			"ongroupfinish": 300
 		},
 		"startlocation": [
 			"lsia",
@@ -32,17 +39,18 @@
 		"endlocation": [
 			"ht_end"
 		],
-		"requires": [
+		"required": [
 			"office"
 		]
 	},
 	{
 		"name": "diamond_shopping",
+		"group": "client",
 		"reward": 30000,
 		"expectedduration": 120,
 		"cooldown": {
-			"onfinish": 900,
-			"ontrigger": 300
+			"onfinish": 1800,
+			"ongroupfinish": 300
 		},
 		"startlocation": [
 			"jewlery_store"
@@ -50,7 +58,7 @@
 		"endlocation": [
 			"secluded_hotel"
 		],
-		"requires": [
+		"required": [
 			"terrorbyte"
 		]
 	},
@@ -60,8 +68,8 @@
 		"tax": 20000,
 		"expectedduration": 420,
 		"cooldown": {
-			"onfinish": 1400, 
-			"ontrigger": 900
+			"onfinish": 1200, 
+			"ongroupfinish": 900
 		},
 		"startlocation": [
 			"vehicle_warehouse"
@@ -80,7 +88,7 @@
 		"tax": 375000,
 		"expectedduration": 600,
 		"cooldown": {
-			"onfinish": 23400
+			"onfinish": 27000
 		},
 		"startlocation": [
 			"bunker"
