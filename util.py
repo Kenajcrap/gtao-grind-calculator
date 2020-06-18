@@ -1,16 +1,27 @@
-import json
 import main
 
-def decode_mission(dct):
-	if "name" in dct:
-		miss = main.mission(dct["name"], dct["reward"], dct["expectedduration"])
-		if "cooldown" in dct:
-			for i in dct["cooldown"]:
-				miss.setcooldown(i, dct["cooldown"][i])
+def decode_mission(dict_):
+	if "name" in dict_:
+		miss = main.Mission(dict_["name"], dict_["reward"], dict_["expectedduration"])
+		if "cooldown" in dict_:
+			for i in dict_["cooldown"]:
+				miss.cooldowntimes[i] = dict_["cooldown"][i]
+		else:
+			del miss.cooldowntimes
+		if "group" in dict_:
+			miss.group = dict_["group"]
+		if "tax" in dict_:
+			miss.tax = dict_["tax"]
+		if "required" in dict_:
+			miss.required = dict_["required"]
 		return miss
 	else:
-		return dct
+		return dict_
 
-with open("missions.json") as missions_data:
-	data = missions_data.read()
-	missions = json.loads(data, object_hook=decode_mission)
+def decode_player(dict_):
+    if "name" in dict_:
+        ply = main.Player(dict_["name"], dict_["business"])
+    return ply
+
+def get_mpt(mission):
+	return (mission.reward - mission.tax)/mission.expectedduration
